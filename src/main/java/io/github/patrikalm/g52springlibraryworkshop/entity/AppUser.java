@@ -14,8 +14,10 @@ public class AppUser {
 
     @Column(unique=true)
     private String username;
+
     @Column
     private String password;
+
     @Column
     private LocalDate regDate;
 

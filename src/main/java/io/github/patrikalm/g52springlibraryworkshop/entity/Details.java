@@ -10,15 +10,18 @@ public class Details {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    @Column(unique = true)
-    String email;
-    @Column
-    String name;
-    @Column
-    LocalDate birthday;
+    private int id;
 
-    public Details() {
+    @Column(unique = true)
+    private String email;
+
+    @Column
+    private String name;
+
+    @Column
+    private LocalDate birthday;
+
+    protected Details() {
     }
 
     public int getId() {

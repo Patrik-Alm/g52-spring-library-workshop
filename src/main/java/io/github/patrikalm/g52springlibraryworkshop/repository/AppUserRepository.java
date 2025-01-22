@@ -9,6 +9,13 @@ import java.util.List;
 
 public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
 
+    AppUser persist(AppUser appUser);
+
+    AppUser merge(AppUser appUser);
+
+    void remove(AppUser appUser);
+
+
     AppUser findByUsername(String username);
 
     List<AppUser> findByRegDateBetween(LocalDate startDate, LocalDate endDate);

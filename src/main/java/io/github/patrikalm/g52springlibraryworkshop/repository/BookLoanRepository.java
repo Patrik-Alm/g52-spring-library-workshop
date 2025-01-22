@@ -11,6 +11,12 @@ import java.util.List;
 @Repository
 public interface BookLoanRepository extends CrudRepository<BookLoan, Integer> {
 
+    BookLoan persist(BookLoan loan);
+
+    BookLoan merge(BookLoan loan);
+
+    void remove(BookLoan loan);
+
     List<BookLoan> findByAppUserId(String appUserId);
 
     List<BookLoan> findByBookId(Integer bookId);

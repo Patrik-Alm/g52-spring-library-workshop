@@ -2,6 +2,8 @@ package io.github.patrikalm.g52springlibraryworkshop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Book {
 
@@ -14,6 +16,11 @@ public class Book {
     private String title;
     @Column
     private int maxLoanDays;
+
+    @ManyToMany
+    @JoinColumn
+    private List<Author> authors;
+
 
     protected Book() {
     }

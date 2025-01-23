@@ -2,6 +2,7 @@ package io.github.patrikalm.g52springlibraryworkshop.repository;
 
 
 import io.github.patrikalm.g52springlibraryworkshop.entity.BookLoan;
+import jakarta.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +28,11 @@ public interface BookLoanRepository extends CrudRepository<BookLoan, Integer> {
 
     List<BookLoan> findByLoanDateBetween(LocalDate startDate, LocalDate endDate);
 
-    BookLoan setReturnedByBookLoanId(Integer bookLoanId);
+    @Transactional(rollbackOn = Exception.class)
+    BookLoan setIsReturnedByBookLoanId(Integer bookLoanId);
+
+    @Transactional(rollbackOn = Exception.class)
+    BookLoan setIsNotReturnedByBookId(Integer bookId);
+
+
 }

@@ -3,6 +3,7 @@ package io.github.patrikalm.g52springlibraryworkshop.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class BookLoan {
@@ -18,11 +19,9 @@ public class BookLoan {
     private boolean returned;
 
     @ManyToOne
-    @JoinColumn
     private AppUser borrower;
 
     @ManyToOne
-    @JoinColumn
     private Book book;
 
     public BookLoan() {
@@ -52,8 +51,12 @@ public class BookLoan {
         return returned;
     }
 
-    public void setReturned(boolean returned) {
-        this.returned = returned;
+    public void setIsReturned() {
+        this.returned = true;
+    }
+
+    public void setIsNotReturned() {
+        this.returned = false;
     }
 
     public AppUser getBorrower() {

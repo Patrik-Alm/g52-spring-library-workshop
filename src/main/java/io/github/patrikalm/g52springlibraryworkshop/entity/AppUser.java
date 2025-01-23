@@ -22,11 +22,16 @@ public class AppUser {
     private LocalDate regDate;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
     private Details userDetails;
 
     protected AppUser() {
 
+    }
+
+    public AppUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.regDate = LocalDate.now();
     }
 
     public int getId() {

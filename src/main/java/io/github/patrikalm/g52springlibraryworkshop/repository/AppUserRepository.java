@@ -3,10 +3,12 @@ package io.github.patrikalm.g52springlibraryworkshop.repository;
 import io.github.patrikalm.g52springlibraryworkshop.entity.AppUser;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.parser.Part;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
 
     AppUser persist(AppUser appUser);
